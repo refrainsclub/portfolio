@@ -9,6 +9,7 @@ export default function Button({
   target = "_self",
   type,
   onClick,
+  disabled,
 }: {
   children: React.ReactNode;
   href?: string;
@@ -16,11 +17,13 @@ export default function Button({
   type?: "submit" | "button" | "reset";
   target?: "_blank" | "_parent" | "_self" | "_top";
   onClick?: MouseEventHandler<HTMLButtonElement>;
+  disabled?: boolean;
 }) {
   const variantClasses =
     variant === "primary"
       ? "bg-pink-800 border-pink-900 hover:border-pink-800 hover:bg-pink-700 shadow-md"
       : "border-gray-700 hover:bg-gray-700";
+  const disabledClasses = disabled ? "opacity-50 cursor-not-allowed" : "";
 
   if (href) {
     return (
@@ -42,10 +45,13 @@ export default function Button({
     <button
       className={
         "leading-0 block rounded-lg border px-6 py-3 text-base tracking-tight text-white duration-300 ease-in-out " +
-        variantClasses
+        variantClasses +
+        " " +
+        disabledClasses
       }
       onClick={onClick}
       type={type}
+      disabled={disabled}
     >
       {children}
       {" →"}

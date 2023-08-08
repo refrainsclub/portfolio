@@ -17,6 +17,7 @@ export default function ContactForm() {
 
   const onSubmit = async (data: FormValues) => {
     try {
+      setSent(false);
       await send.mutateAsync(data);
 
       setSent(true);
@@ -88,7 +89,9 @@ export default function ContactForm() {
         })}
       />
       <div className="flex flex-row items-center gap-4 self-start">
-        <Button type="submit">Submit</Button>
+        <Button type="submit" disabled={send.isLoading}>
+          Submit
+        </Button>
         {sent ? <p className="flex-1 text-sm text-gray-400">Sent!</p> : null}
         {error ? (
           <p className="flex-1 text-sm text-gray-400">{error.message}</p>
