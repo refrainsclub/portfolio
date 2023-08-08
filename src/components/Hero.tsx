@@ -1,10 +1,20 @@
 import { motion } from "framer-motion";
 import Button from "./Button";
 import Navbar from "./Navbar";
+import Image from "next/image";
 
 export default function Hero() {
   return (
-    <div className="bg-[url('/background.svg')] bg-cover bg-fixed text-white">
+    <div className="relative text-white">
+      <Image
+        width={0}
+        height={0}
+        sizes="100vw"
+        className="pointer-events-none absolute inset-0 -z-50 h-full w-full object-cover object-center"
+        src="/background.svg"
+        priority={true}
+        alt=""
+      />
       <div className="bg-gradient-to-b from-black/75 to-gray-900/100">
         <Navbar />
         <div className="container mx-auto flex flex-col items-center p-8 py-24 text-center lg:items-start lg:py-72 lg:text-left">
