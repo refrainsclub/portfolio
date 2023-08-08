@@ -1,6 +1,7 @@
 import Head from "next/head";
 import About from "~/components/About";
 import Contact from "~/components/Contact";
+import Divider from "~/components/Divider";
 import Footer from "~/components/Footer";
 import Hero from "~/components/Hero";
 import Projects from "~/components/Projects";
@@ -31,8 +32,16 @@ export default function Home() {
         <link rel="manifest" href="/site.webmanifest" />
       </Head>
       <Hero />
+
+      <Divider />
+
       <About />
+      <Divider />
+
       <Projects />
+
+      <Divider />
+      
       <Contact />
       <Footer />
     </>

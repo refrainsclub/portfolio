@@ -11,14 +11,15 @@ export default function Contact() {
           whileInView={{ opacity: 1, scale: 1 }}
           viewport={{ once: true }}
         >
-          <h1 className="leading-0 text-center text-5xl font-bold tracking-tight">
+          <h1 className="leading-0 text-center text-4xl font-bold tracking-tight md:text-5xl">
             <Link id="contact" href="#contact">
               Contact Me
             </Link>
           </h1>
         </motion.div>
         <p className="mx-auto my-12 max-w-2xl text-center text-xl">
-          Contact me for business inquires
+          Here you can contact me here for business inquires or questions. Your
+          response will be sent to me directly.
         </p>
         <ContactForm />
       </div>

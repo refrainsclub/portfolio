@@ -11,7 +11,7 @@ export default function About() {
           whileInView={{ opacity: 1, scale: 1 }}
           viewport={{ once: true }}
         >
-          <h1 className="leading-0 text-center text-5xl font-bold tracking-tight">
+          <h1 className="leading-0 text-center text-4xl font-bold tracking-tight md:text-5xl">
             <Link id="about" href="#about">
               About Me
             </Link>
@@ -20,25 +20,23 @@ export default function About() {
 
         <div className="mx-auto mt-12 max-w-2xl text-center">
           <p className="mb-8 text-xl leading-8">
-            Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-            Repudiandae quos ipsa accusamus ex eos nisi saepe nobis non harum
-            consectetur reiciendis a tempora, provident, autem veritatis
-            nesciunt dolores dolore delectus!
-          </p>
-          <p className="mb-8 text-xl leading-8">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium
-            atque, officiis quibusdam commodi assumenda veritatis tempora
-            explicabo expedita eum sequi id, esse optio in corrupti quo, laborum
-            nostrum necessitatibus sed?
+            Hey there! I am James, a 16 year old software developer from
+            Hamilton, New Zealand. I have a passion for STEM subjects, such as
+            Computer Science and Mathematics. I am currently studying towards my
+            NCEA and am looking to study Computer Science at the University of
+            Auckland once I graduate from high school here.
           </p>
           <p className="text-xl leading-8">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Repudiandae
-            maxime quaerat et explicabo labore. Dolores, eius quaerat libero
-            sint fugiat nesciunt deleniti porro dolorum autem, cupiditate quas
-            accusamus. Aut, aspernatur?
+            Working towards my goal of a software engineer, I have put a lot of
+            effort into learning new skills and technologies. I have experience
+            in a wide range of languages and frameworks, and have had
+            opportunities to work on amazing projects. I am always looking for
+            new opportunities to learn and grow as a developer and a person.
           </p>
           <div className="mx-auto mt-12 w-fit">
-            <Button href="#projects">Projects</Button>
+            <Button asChild>
+              <Link href="#projects">Projects</Link>
+            </Button>
           </div>
         </div>
       </div>
