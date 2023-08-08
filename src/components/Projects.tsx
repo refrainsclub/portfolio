@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import type { Variants } from "framer-motion";
 import Button from "./Button";
+import Link from "next/link";
 
 interface Project {
   id: number;
@@ -50,7 +51,9 @@ export default function Projects() {
           viewport={{ once: true }}
         >
           <h1 className="leading-0 mb-2 text-center text-5xl font-bold tracking-tight">
-            <a id="projects">My Projects</a>
+            <Link id="projects" href="#projects">
+              My Projects
+            </Link>
           </h1>
         </motion.div>
         <p className="mx-auto mt-12 max-w-2xl text-center text-xl">

@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import ContactForm from "./ContactForm";
+import Link from "next/link";
 
 export default function Contact() {
   return (
@@ -11,7 +12,9 @@ export default function Contact() {
           viewport={{ once: true }}
         >
           <h1 className="leading-0 text-center text-5xl font-bold tracking-tight">
-            <a id="contact">Contact Me</a>
+            <Link id="contact" href="#contact">
+              Contact Me
+            </Link>
           </h1>
         </motion.div>
         <p className="mx-auto my-12 max-w-2xl text-center text-xl">

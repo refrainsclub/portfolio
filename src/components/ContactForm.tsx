@@ -3,7 +3,7 @@ import Button from "./Button";
 import { useForm } from "react-hook-form";
 import { api } from "~/utils/api";
 
-interface Data {
+interface FormValues {
   name: string;
   email: string;
   message: string;
@@ -13,11 +13,11 @@ export default function ContactForm() {
   const send = api.contact.send.useMutation();
   const error = send.error;
   const [sent, setSent] = useState(false);
-  const { register, handleSubmit, reset } = useForm<Data>();
+  const { register, handleSubmit, reset } = useForm<FormValues>();
 
-  const onSubmit = async (formData: Data) => {
+  const onSubmit = async (data: FormValues) => {
     try {
-      await send.mutateAsync(formData);
+      await send.mutateAsync(data);
 
       setSent(true);
       reset();

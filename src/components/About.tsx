@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import Button from "./Button";
+import Link from "next/link";
 
 export default function About() {
   return (
@@ -11,7 +12,9 @@ export default function About() {
           viewport={{ once: true }}
         >
           <h1 className="leading-0 text-center text-5xl font-bold tracking-tight">
-            <a id="about">About Me</a>
+            <Link id="about" href="#about">
+              About Me
+            </Link>
           </h1>
         </motion.div>
 

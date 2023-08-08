@@ -6,7 +6,9 @@ export default function Navbar() {
       <div className="container mx-auto p-8 py-6">
         <div className="flex flex-col flex-wrap items-center justify-between gap-y-6 md:flex-row">
           <div>
-            <h1 className="text-2xl font-bold tracking-tight">James Blair</h1>
+            <Link href="/">
+              <h1 className="text-2xl font-bold tracking-tight">James Blair</h1>
+            </Link>
           </div>
           <div className="hidden flex-wrap items-center gap-6 md:flex md:flex-row">
             <div>
