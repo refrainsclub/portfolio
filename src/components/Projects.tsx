@@ -1,4 +1,5 @@
-import { Variants, motion } from "framer-motion";
+import { motion } from "framer-motion";
+import type { Variants } from "framer-motion";
 import Button from "./Button";
 
 interface Project {
