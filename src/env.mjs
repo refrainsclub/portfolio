@@ -8,6 +8,7 @@ export const env = createEnv({
    */
   server: {
     DATABASE_URL: z.string().url(),
+    DIRECT_URL: z.string().url(),
     SENDGRID_API_KEY: z.string(),
     CONTACT_EMAIL: z.string(),
     NODE_ENV: z.enum(["development", "test", "production"]),
@@ -28,6 +29,7 @@ export const env = createEnv({
    */
   runtimeEnv: {
     DATABASE_URL: process.env.DATABASE_URL,
+    DIRECT_URL: process.env.DIRECT_URL,
     SENDGRID_API_KEY: process.env.SENDGRID_API_KEY,
     NODE_ENV: process.env.NODE_ENV,
     CONTACT_EMAIL: process.env.CONTACT_EMAIL,
