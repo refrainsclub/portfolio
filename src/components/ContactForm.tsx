@@ -20,6 +20,8 @@ export default function ContactForm() {
   const { register, handleSubmit, reset } = useForm<FormValues>();
 
   const onSubmit = async (data: FormValues) => {
+    if (!token) return alert("Please complete the captcha");
+
     try {
       setSent(false);
       await send.mutateAsync({ captcha: token, ...data });
