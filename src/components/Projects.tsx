@@ -105,17 +105,11 @@ export default function Projects() {
         <p className="mx-auto mt-12 max-w-2xl text-center text-xl">
           Here you can find my past and ongoing projects.
         </p>
-        <motion.div
-          initial="offscreen"
-          whileInView="onscreen"
-          variants={variants}
-          viewport={{ once: true }}
-          className="mt-12 grid grid-flow-row grid-cols-1 gap-4 md:grid-cols-2"
-        >
+        <div className="mt-12 grid grid-flow-row grid-cols-1 gap-4 md:grid-cols-2">
           {projects.map((project) => (
             <Project {...project} key={project.id} />
           ))}
-        </motion.div>
+        </div>
       </div>
     </div>
   );
@@ -123,7 +117,7 @@ export default function Projects() {
 
 const variants: Variants = {
   offscreen: {
-    y: 100,
+    y: 150,
   },
   onscreen: {
     y: 0,
@@ -138,6 +132,9 @@ const variants: Variants = {
 function Project(project: Project) {
   return (
     <motion.div
+      initial="offscreen"
+      whileInView="onscreen"
+      viewport={{ once: true }}
       variants={variants}
       className="flex flex-col items-start justify-between rounded-lg border border-gray-700 p-8 text-white"
     >

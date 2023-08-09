@@ -6,7 +6,7 @@ import Link from "next/link";
 
 export default function Hero() {
   return (
-    <div className="relative text-white">
+    <div className="relative">
       <Image
         width={0}
         height={0}
