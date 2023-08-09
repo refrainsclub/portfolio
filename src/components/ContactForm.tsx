@@ -97,21 +97,24 @@ export default function ContactForm() {
       <label className="sr-only" htmlFor="message">
         Captcha
       </label>
-      <HCaptcha
-        sitekey={
-          nodeEnv === "development"
-            ? "10000000-ffff-ffff-ffff-000000000001"
-            : env.NEXT_PUBLIC_HCAPTCHA_SITE_KEY
-        }
-        onVerify={setToken}
-        onExpire={() => setToken("")}
-        onError={(err: unknown) => {
-          setToken("");
-          alert("Cannot verify captcha");
-          console.error(err);
-        }}
-        theme="dark"
-      />
+      <div className="h-[78px]">
+        <HCaptcha
+          sitekey={
+            nodeEnv === "development"
+              ? "10000000-ffff-ffff-ffff-000000000001"
+              : env.NEXT_PUBLIC_HCAPTCHA_SITE_KEY
+          }
+          onVerify={setToken}
+          onExpire={() => setToken("")}
+          onError={(err: unknown) => {
+            setToken("");
+            alert("Cannot verify captcha");
+            console.error(err);
+          }}
+          theme="dark"
+          size="normal"
+        />
+      </div>
       <div className="flex flex-row items-center gap-4 self-start">
         <Button type="submit" disabled={send.isLoading}>
           Submit
