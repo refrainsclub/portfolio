@@ -110,6 +110,7 @@ export default function ContactForm() {
           alert("Cannot verify captcha");
           console.error(err);
         }}
+        theme="dark"
       />
       <div className="flex flex-row items-center gap-4 self-start">
         <Button type="submit" disabled={send.isLoading}>
