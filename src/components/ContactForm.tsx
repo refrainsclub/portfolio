@@ -2,6 +2,8 @@ import { useState } from "react";
 import Button from "./Button";
 import { useForm } from "react-hook-form";
 import { api } from "~/utils/api";
+import HCaptcha from "@hcaptcha/react-hcaptcha";
+import { env } from "~/env.mjs";
 
 interface FormValues {
   name: string;
@@ -10,15 +12,17 @@ interface FormValues {
 }
 
 export default function ContactForm() {
+  const nodeEnv = process.env.NODE_ENV;
   const send = api.contact.send.useMutation();
   const error = send.error;
   const [sent, setSent] = useState(false);
+  const [token, setToken] = useState("");
   const { register, handleSubmit, reset } = useForm<FormValues>();
 
   const onSubmit = async (data: FormValues) => {
     try {
       setSent(false);
-      await send.mutateAsync(data);
+      await send.mutateAsync({ captcha: token, ...data });
 
       setSent(true);
       reset();
@@ -87,6 +91,23 @@ export default function ContactForm() {
           minLength: 50,
           maxLength: 500,
         })}
+      />
+      <label className="sr-only" htmlFor="message">
+        Captcha
+      </label>
+      <HCaptcha
+        sitekey={
+          nodeEnv === "development"
+            ? "10000000-ffff-ffff-ffff-000000000001"
+            : env.NEXT_PUBLIC_HCAPTCHA_SITE_KEY
+        }
+        onVerify={setToken}
+        onExpire={() => setToken("")}
+        onError={(err: unknown) => {
+          setToken("");
+          alert("Cannot verify captcha");
+          console.error(err);
+        }}
       />
       <div className="flex flex-row items-center gap-4 self-start">
         <Button type="submit" disabled={send.isLoading}>

@@ -7,10 +7,11 @@ export const env = createEnv({
    * isn't built with invalid env vars.
    */
   server: {
-    DATABASE_URL: z.string().url(),
-    DIRECT_URL: z.string().url(),
-    SENDGRID_API_KEY: z.string(),
-    CONTACT_EMAIL: z.string(),
+    DATABASE_URL: z.string().url().min(1),
+    DIRECT_URL: z.string().url().min(1),
+    SENDGRID_API_KEY: z.string().min(1),
+    HCAPTCHA_SECRET_KEY: z.string().min(1),
+    CONTACT_EMAIL: z.string().min(1),
     NODE_ENV: z.enum(["development", "test", "production"]),
   },
 
@@ -20,7 +21,7 @@ export const env = createEnv({
    * `NEXT_PUBLIC_`.
    */
   client: {
-    // NEXT_PUBLIC_CLIENTVAR: z.string().min(1),
+    NEXT_PUBLIC_HCAPTCHA_SITE_KEY: z.string().min(1),
   },
 
   /**
@@ -31,8 +32,10 @@ export const env = createEnv({
     DATABASE_URL: process.env.DATABASE_URL,
     DIRECT_URL: process.env.DIRECT_URL,
     SENDGRID_API_KEY: process.env.SENDGRID_API_KEY,
-    NODE_ENV: process.env.NODE_ENV,
+    NEXT_PUBLIC_HCAPTCHA_SITE_KEY: process.env.NEXT_PUBLIC_HCAPTCHA_SITE_KEY,
+    HCAPTCHA_SECRET_KEY: process.env.HCAPTCHA_SECRET_KEY,
     CONTACT_EMAIL: process.env.CONTACT_EMAIL,
+    NODE_ENV: process.env.NODE_ENV,
     // NEXT_PUBLIC_CLIENTVAR: process.env.NEXT_PUBLIC_CLIENTVAR,
   },
   /**
