@@ -83,7 +83,7 @@ export default function ContactForm() {
       </label>
       <textarea
         id="message"
-        className="h-72 rounded-lg border border-gray-700 bg-gray-900 p-4"
+        className="h-72 w-full rounded-lg border border-gray-700 bg-gray-900 p-4"
         required={true}
         minLength={50}
         maxLength={500}
