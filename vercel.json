@@ -1,0 +1,20 @@
+{
+  "redirects": [
+    {
+      "source": "/github",
+      "destination": "https://github.com/refrainsclub"
+    },
+    {
+      "source": "/gh",
+      "destination": "https://github.com/refrainsclub"
+    },
+    {
+      "source": "/github/:slug*",
+      "destination": "https://github.com/refrainsclub/:slug*"
+    },
+    {
+      "source": "/gh/:slug*",
+      "destination": "https://github.com/refrainsclub/:slug*"
+    }
+  ]
+}
