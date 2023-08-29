@@ -18,6 +18,31 @@ const config = {
     locales: ["en"],
     defaultLocale: "en",
   },
+  // eslint-disable-next-line @typescript-eslint/require-await
+  async redirects() {
+    return [
+      {
+        source: "/github",
+        destination: "https://github.com/refrainsclub",
+        permanent: false,
+      },
+      {
+        source: "/gh",
+        destination: "https://github.com/refrainsclub",
+        permanent: false,
+      },
+      {
+        source: "/github/:slug*",
+        destination: "https://github.com/refrainsclub/:slug*",
+        permanent: false,
+      },
+      {
+        source: "/gh/:slug*",
+        destination: "https://github.com/refrainsclub/:slug*",
+        permanent: false,
+      },
+    ];
+  },
 };
 
 export default config;
